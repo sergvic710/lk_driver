@@ -71,7 +71,7 @@
                     <div class="col-2">
                         <ul class="nav flex-column">
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Расчетные листки</a>
+                                <a class="nav-link" href="docs">Документы</a>
                             </li>
                         </ul>
                     </div>
