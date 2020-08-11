@@ -34,10 +34,17 @@ class UsersController extends Controller
     }
     public function destroy(UsersRequest $request, $email)
     {
-        $users = User::where('email', $email)->firstOrFail();
-        if($users->delete()) return response(null, 204);
+        $users = User::where('email', $email)->first();
+        if( $users ) {
+            if ($users->delete()) return response(null, 204);
+        } else {
+            return response('User not found', 404);
+        }
     }
-
+    public function show(UsersRequest $request)
+    {
+        return $user = User::findOrFail($request);
+    }
 
     /*    public function show(Game $game)
         {

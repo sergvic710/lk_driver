@@ -17,6 +17,9 @@ use Illuminate\Support\Facades\Route;
 /*Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });*/
-use Http\Controllers\UsersController;
+
+use Http\Controllers\Api\ApiDocsController;
 
 Route::apiResource('/users', 'UsersController');
+//Route::apiResource('/docs', 'ApiDocsController');
+Route::apiResource('/docs','API\ApiDocsController');

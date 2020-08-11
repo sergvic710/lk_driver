@@ -22,8 +22,7 @@ class ApiDocsController extends Controller
                 $file->move(storage_path('docs'), $request->user_id.'_'.$file->getClientOriginalName());
                 $doc['file'] = $request->user_id.'_'.$file->getClientOriginalName();
         }
-        Docs::create($doc);
-        return "Успех";
+        return Docs::create($doc);
     }
 /*    public function update(UsersRequest $request, $email)
     {

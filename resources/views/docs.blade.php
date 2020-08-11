@@ -7,7 +7,6 @@
             <th scope="col">#</th>
             <th scope="col">Название</th>
             <th scope="col">Дата создания</th>
-            <th scope="col">Дата просмотра</th>
             <th scope="col">Файл</th>
         </tr>
         </thead>
@@ -16,8 +15,10 @@
             <tr>
                 <td>{{ $doc->id }}</td>
                 <td>{{ $doc->title }}</td>
-                <td>{{ $doc->title }}</td>
-                <td><img src="{{ asset('upload/'.$doc->file) }}"> </td>
+                <td>{{ $doc->created_at }}</td>
+                <td>
+                    <a target="_blank" href="{{ asset('/storage/docs/'.$doc->file) }}">Просмотреть</a>
+                </td>
             </tr>
     @endforeach
         </tbody>

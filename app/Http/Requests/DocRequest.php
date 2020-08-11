@@ -24,7 +24,7 @@ class DocRequest extends FormRequest
     {
         $rules = [
             'user_id' => 'required|integer',
-            'type' => 'required|integer',
+            'mime' => 'required|string',
             'title' => 'required|string',
             'file' => 'required|file',
         ];

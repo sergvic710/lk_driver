@@ -8,6 +8,6 @@ class Docs extends Model
 {
     protected $table = 'docs';
     protected $fillable = [
-        'title', 'user_id','file','type'
+        'title', 'user_id','file','mime'
     ];
 }
