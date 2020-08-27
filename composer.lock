@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "71e8185bde5c14ea03b0495dcfc2f7d2",
+    "content-hash": "59a01939803d5012097ae3f16aa017db",
     "packages": [
         {
             "name": "arrilot/laravel-widgets",
@@ -171,6 +171,62 @@
                 }
             ],
             "time": "2020-04-15T15:59:35+00:00"
+        },
+        {
+            "name": "clevyr/laravel-feedback-form",
+            "version": "0.1.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/clevyr/laravel-feedback-form.git",
+                "reference": "36abdfb0c53678e952972c21799d1ba4065b37d0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/clevyr/laravel-feedback-form/zipball/36abdfb0c53678e952972c21799d1ba4065b37d0",
+                "reference": "36abdfb0c53678e952972c21799d1ba4065b37d0",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "laravel/framework": ">=5.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Clevyr\\FeedbackForm\\FeedbackServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Clevyr\\FeedbackForm\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Aaron Krauss",
+                    "email": "aaron@clevyr.com",
+                    "homepage": "https://clevyr.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A simple user feedback form for Laravel.",
+            "homepage": "https://clevyr.com",
+            "keywords": [
+                "email",
+                "feedback",
+                "form",
+                "laravel",
+                "laravel5"
+            ],
+            "time": "2019-09-25T14:56:11+00:00"
         },
         {
             "name": "composer/ca-bundle",

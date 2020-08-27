@@ -81,6 +81,7 @@
                 </div>
             </div>
         </main>
+        <feedback-form />
     </div>
 </body>
 </html>
