@@ -22,6 +22,9 @@ Auth::routes();
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/docs', 'DocsController@index');
 
+Route::get('change-password', 'ChangePasswordController@index');
+Route::post('change-password', 'ChangePasswordController@store')->name('change.password');
+
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
