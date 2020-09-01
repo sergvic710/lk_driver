@@ -4,6 +4,8 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
+import axios from "axios";
+
 require('./bootstrap');
 
 window.Vue = require('vue');
@@ -31,3 +33,24 @@ Vue.component('feedback-form', require('./components/FeedbackForm.vue').default)
 const app = new Vue({
     el: '#app',
 });
+$.ajaxSetup({
+    headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    }
+});
+let view_doc = document.getElementsByClassName('view-doc-link');
+for (let viewDoc of view_doc) {
+    viewDoc.addEventListener('click',function (e) {
+        e.preventDefault();
+
+    $.ajax({
+            type:'POST',
+            url:"ajaxviewdoc",
+            data:{iddoc: this.id},
+            success:function(data){
+//                document.getElementById('at-'+)
+                alert(data);
+            }
+        });
+    });
+}

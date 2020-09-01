@@ -7,6 +7,7 @@
             <th scope="col">#</th>
             <th scope="col">Название</th>
             <th scope="col">Дата создания</th>
+            <th scope="col">Дата просмотра</th>
             <th scope="col">Файл</th>
         </tr>
         </thead>
@@ -15,9 +16,12 @@
             <tr>
                 <td>{{ $doc->id }}</td>
                 <td>{{ $doc->title }}</td>
-                <td>{{ $doc->created_at }}</td>
+                <td>{{ \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $doc->created_at)
+                    ->format('d-m-Y H:i') }}</td>
+                <td class="view-doc-time" id="at-{{ $doc->id }}">{{ \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $doc->view_at)
+                    ->format('d-m-Y H:i') }}</td>
                 <td>
-                    <a target="_blank" href="{{ asset('/storage/docs/'.$doc->file) }}">Просмотреть</a>
+                    <a target="_blank" class="view-doc-link" id="{{ $doc->id }}" href="{{ asset('/storage/docs/'.$doc->file) }}">Просмотреть</a>
                 </td>
             </tr>
     @endforeach

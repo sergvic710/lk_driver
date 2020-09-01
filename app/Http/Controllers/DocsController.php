@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Docs;
+use Illuminate\Support\Facades\Auth;
 use PhpParser\Comment\Doc;
 
 class DocsController extends Controller
@@ -20,8 +21,19 @@ class DocsController extends Controller
      */
     public function index()
     {
-        $docs = Docs::all();
+        $docs = Docs::where(['user_id'=>Auth::id()])->get();
         return view('docs',['docs' => $docs]);
+    }
+
+    public function setviewdoc(Request $request)
+    {
+        $doc = Docs::find($request->input('iddoc'));
+        if( !is_null($doc->view_at) ) {
+            $doc->view_at = now();
+            $doc->save();
+            return response()->json(['id'=>$doc->id,'view_at'=>$doc->view_at]);
+        }
+        return response()->json('');
     }
 
     /**
