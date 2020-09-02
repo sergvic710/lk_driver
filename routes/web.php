@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 });*/
 
 
-//Auth::routes();
+Auth::routes();
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/docs', 'DocsController@index');
 Route::post('/ajaxviewdoc', 'DocsController@setviewdoc');
