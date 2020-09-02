@@ -49,7 +49,7 @@ for (let viewDoc of view_doc) {
             data:{iddoc: this.id},
             success:function(data){
 //                document.getElementById('at-'+)
-                alert(data);
+//                alert(data);
             }
         });
     });

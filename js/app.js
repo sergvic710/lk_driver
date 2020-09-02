@@ -51662,9 +51662,8 @@ try {
         data: {
           iddoc: this.id
         },
-        success: function success(data) {
-          //                document.getElementById('at-'+)
-          alert(data);
+        success: function success(data) {//                document.getElementById('at-'+)
+          //                alert(data);
         }
       });
     });
