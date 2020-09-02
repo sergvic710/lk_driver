@@ -51655,7 +51655,7 @@ try {
   for (_iterator.s(); !(_step = _iterator.n()).done;) {
     var viewDoc = _step.value;
     viewDoc.addEventListener('click', function (e) {
-      e.preventDefault();
+      //        e.preventDefault();
       $.ajax({
         type: 'POST',
         url: "ajaxviewdoc",

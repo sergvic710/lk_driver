@@ -41,7 +41,7 @@ $.ajaxSetup({
 let view_doc = document.getElementsByClassName('view-doc-link');
 for (let viewDoc of view_doc) {
     viewDoc.addEventListener('click',function (e) {
-        e.preventDefault();
+//        e.preventDefault();
 
     $.ajax({
             type:'POST',
