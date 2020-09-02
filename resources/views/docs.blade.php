@@ -18,8 +18,8 @@
                 <td>{{ $doc->title }}</td>
                 <td>{{ \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $doc->created_at)
                     ->format('d-m-Y H:i') }}</td>
-                <td class="view-doc-time" id="at-{{ $doc->id }}">{{ \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $doc->view_at)
-                    ->format('d-m-Y H:i') }}</td>
+                <td class="view-doc-time" id="at-{{ $doc->id }}">{{ !is_null($doc->view_at)?\Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $doc->view_at)
+                    ->format('d-m-Y H:i'):'' }}</td>
                 <td>
                     <a target="_blank" class="view-doc-link" id="{{ $doc->id }}" href="{{ asset('/storage/docs/'.$doc->file) }}">Просмотреть</a>
                 </td>
