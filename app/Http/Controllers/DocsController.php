@@ -28,7 +28,7 @@ class DocsController extends Controller
     public function setviewdoc(Request $request)
     {
         $doc = Docs::find($request->input('iddoc'));
-        if( !is_null($doc->view_at) ) {
+        if( is_null($doc->view_at) ) {
             $doc->view_at = now();
             $doc->save();
             return response()->json(['id'=>$doc->id,'view_at'=>$doc->view_at]);
