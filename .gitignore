@@ -12,6 +12,7 @@ npm-debug.log
 yarn-error.log
 /public/js/
 /public/css/
-./idea
+.idea
 /css
 /js
+/storage
