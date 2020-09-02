@@ -18,6 +18,7 @@ class UsersController extends Controller
     {
         $user = $request->validated();
         $user['password'] = Hash::make($user['password']);
+        $user['role_id'] = 2;
         return User::create($user);
     }
     public function update(UsersRequest $request, $email)
@@ -41,9 +42,17 @@ class UsersController extends Controller
             return response('User not found', 404);
         }
     }
-    public function show(UsersRequest $request)
+    public function show($email)
     {
-        return $user = User::findOrFail($request);
+//        dd($email);
+        $user = User::where('email', $email)
+            ->where('role_id',2)
+            ->first();
+        if( $user ) {
+            return $user;
+        } else {
+            return response('User not found', 404);
+        }
     }
 
     /*    public function show(Game $game)
