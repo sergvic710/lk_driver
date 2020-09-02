@@ -19,7 +19,7 @@ class CreateDocsTable extends Migration
             $table->string('mime');
             $table->string('title');
             $table->string('file');
-            $table->dateTime('view_at',0);
+            $table->dateTime('view_at',0)->nullable();
             $table->timestamps();
         });
     }
