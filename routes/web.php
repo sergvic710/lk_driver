@@ -21,6 +21,7 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/docs', 'DocsController@index');
+Route::get('/loginhistory', 'loginHistoryController@index')->name('loginhistory');;
 Route::post('/ajaxviewdoc', 'DocsController@setviewdoc');
 
 Route::get('change-password', 'ChangePasswordController@index');
