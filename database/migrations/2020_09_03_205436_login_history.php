@@ -13,10 +13,11 @@ class LoginHistory extends Migration
      */
     public function up()
     {
-        Schema::create('login_hostory', function (Blueprint $table) {
+        Schema::create('login_history', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id');
             $table->dateTime('login_at',0);
+            $table->timestamps();
         });
     }
 
@@ -27,5 +28,5 @@ class LoginHistory extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('login_hostory');    }
+        Schema::dropIfExists('login_history');    }
 }
