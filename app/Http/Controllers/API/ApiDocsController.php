@@ -16,12 +16,15 @@ class ApiDocsController extends Controller
 
     public function store(DocRequest $request)
     {
+        $user = User::where(['name' => $request->input('user')])->first();
 //        $file = $request->file();
-        $doc  = $request->validated();
+        $doc  = $request->except(['user']);
+
         foreach ($request->file() as $file) {
-                $file->move(storage_path('docs'), $request->user_id.'_'.$file->getClientOriginalName());
-                $doc['file'] = $request->user_id.'_'.$file->getClientOriginalName();
+                $file->move(storage_path('docs'), $user->id.'_'.$file->getClientOriginalName());
+                $doc['file'] = $user->id.'_'.$file->getClientOriginalName();
         }
+        dd($doc);
         return Docs::create($doc);
     }
 /*    public function update(UsersRequest $request, $email)

@@ -23,7 +23,7 @@ class DocRequest extends FormRequest
     public function rules()
     {
         $rules = [
-            'user_id' => 'required|integer',
+            'user' => 'required|integer',
             'mime' => 'required|string',
             'title' => 'required|string',
             'file' => 'required|file',
@@ -32,16 +32,6 @@ class DocRequest extends FormRequest
         {
             case 'POST':
                 return $rules;
-            case 'PUT':
-                return [
-                    'name' => 'string',
-                    'password' => 'string|min:8'
-                    /*                        'email' => [
-                                                'required',
-                                                Rule::unique('users')->ignore($this->email, 'email') //должен быть уникальным, за исключением себя же
-                                            ]*/
-                ];// + $rules; // и берем все остальные правила
-            // case 'PATCH':
             case 'DELETE':
                 return [
 //                    'email' => 'required|string|exists:users,email'
