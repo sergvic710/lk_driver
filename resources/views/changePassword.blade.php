@@ -5,7 +5,7 @@
         <div class="row justify-content-center">
             <div class="col-md-10hf ghj">
                 <div class="card">
-                    <div class="card-header">Изменение пароля</div>
+                    <div class="card-header">Смена пароля</div>
                     <div class="card-body">
                         <form method="POST" action="{{ route('change.password') }}">
                             @csrf
@@ -38,7 +38,7 @@
                             <div class="form-group row mb-0">
                                 <div class="col-md-8 offset-md-4">
                                     <button type="submit" class="btn btn-primary">
-                                        Update Password
+                                        Сменить пароль
                                     </button>
                                 </div>
                             </div>
