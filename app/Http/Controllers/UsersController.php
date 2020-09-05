@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Docs;
 use App\Http\Requests\UsersRequest;
+use App\loginHistory;
 use App\User;
 use Illuminate\Support\Facades\Hash;
 
@@ -37,7 +39,11 @@ class UsersController extends Controller
     {
         $users = User::where('name', $name)->first();
         if( $users ) {
-            if ($users->delete()) return response(null, 204);
+            if ($users->delete()) {
+                Docs::where(['user_id' => $users->id])->delete();
+                loginHistory::where(['user_id' => $users->id])->delete();
+                return response(null, 204);
+            }
         } else {
             return response('User not found', 404);
         }
