@@ -11,7 +11,7 @@ class UsersController extends Controller
     //
     public function index()
     {
-        return User::where(['role_id' => 2])->get();
+        return User::where(['role_id' => 2])->select('name','email')->get();
     }
 
     public function store(UsersRequest $request)

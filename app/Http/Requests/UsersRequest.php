@@ -25,7 +25,7 @@ class UsersRequest extends FormRequest
     {
         $rules = [
             'name' => 'required|string|unique:users,name',
-            'email' => 'string|unique:users,email',
+            'email' => 'string',
             'password' => 'required|string|min:8'
         ];
         switch ($this->getMethod())
@@ -34,8 +34,8 @@ class UsersRequest extends FormRequest
                 return $rules;
             case 'PUT':
                 return [
-                        'name' => 'string',
-                        'password' => 'string|min:8'
+                        'password' => 'string|min:8',
+                        'email' => 'string',
 /*                        'email' => [
                             'required',
                             Rule::unique('users')->ignore($this->email, 'email') //должен быть уникальным, за исключением себя же
