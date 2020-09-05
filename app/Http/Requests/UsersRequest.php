@@ -24,8 +24,8 @@ class UsersRequest extends FormRequest
     public function rules()
     {
         $rules = [
-            'name' => 'required|string',
-            'email' => 'required|string|unique:users,email',
+            'name' => 'required|string|unique:users,name',
+            'email' => 'string|unique:users,email',
             'password' => 'required|string|min:8'
         ];
         switch ($this->getMethod())

@@ -11,7 +11,7 @@ class UsersController extends Controller
     //
     public function index()
     {
-        return User::all();
+        return User::where(['role_id' => 2])->get();
     }
 
     public function store(UsersRequest $request)
@@ -21,11 +21,11 @@ class UsersController extends Controller
         $user['role_id'] = 2;
         return User::create($user);
     }
-    public function update(UsersRequest $request, $email)
+    public function update(UsersRequest $request, $name)
     {
-        $users = User::where('email', $email)->firstOrFail();
+        $users = User::where('name', $name)->firstOrFail();
 //        $users = users::findOrFail($id);
-        $user = $request->except(['email']);
+        $user = $request->except(['name']);
         if( isset($user['password'])) {
             $user['password'] = Hash::make($user['password']);
         }
@@ -33,19 +33,18 @@ class UsersController extends Controller
         $users->save();
         return response()->json($users);
     }
-    public function destroy(UsersRequest $request, $email)
+    public function destroy(UsersRequest $request, $name)
     {
-        $users = User::where('email', $email)->first();
+        $users = User::where('name', $name)->first();
         if( $users ) {
             if ($users->delete()) return response(null, 204);
         } else {
             return response('User not found', 404);
         }
     }
-    public function show($email)
+    public function show($name)
     {
-//        dd($email);
-        $user = User::where('email', $email)
+        $user = User::where('name', $name)
             ->where('role_id',2)
             ->first();
         if( $user ) {
