@@ -19,6 +19,7 @@ class ApiDocsController extends Controller
         $user = User::where(['name' => $request->input('user')])->first();
 //        $file = $request->file();
         $doc  = $request->except(['user']);
+        $doc['user_id'] = $user->id;
 
         foreach ($request->file() as $file) {
                 $file->move(storage_path('docs'), $user->id.'_'.$file->getClientOriginalName());
