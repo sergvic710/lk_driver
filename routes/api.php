@@ -20,6 +20,11 @@ use Illuminate\Support\Facades\Route;
 
 use Http\Controllers\Api\ApiDocsController;
 
-Route::apiResource('/users', 'UsersController');
+Route::post('/login', 'API\AuthController@login')->name('login');
+
+Route::middleware('auth:api')->group(function () {
+    Route::apiResource('/users', 'UsersController');
 //Route::apiResource('/docs', 'ApiDocsController');
-Route::apiResource('/docs','API\ApiDocsController');
+    Route::apiResource('/docs', 'API\ApiDocsController');
+    Route::get('/logout', 'API\AuthController@logout')->name('logout');
+});
