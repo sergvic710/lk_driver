@@ -23,7 +23,7 @@ class DocRequest extends FormRequest
     public function rules()
     {
         $rules = [
-            'user' => 'required|integer',
+            'user' => 'required|string',
             'mime' => 'required|string',
             'title' => 'required|string',
             'file' => 'required|file',
