@@ -26,5 +26,6 @@ Route::middleware('auth:api')->group(function () {
     Route::apiResource('/users', 'UsersController');
 //Route::apiResource('/docs', 'ApiDocsController');
     Route::apiResource('/docs', 'API\ApiDocsController');
+    Route::apiResource('/info', 'API\InfoController');
     Route::get('/logout', 'API\AuthController@logout')->name('logout');
 });

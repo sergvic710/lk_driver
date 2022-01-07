@@ -17,13 +17,14 @@ class InfoTable extends Migration
         Schema::create('info', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id');
-            $table->string('DriverID');
-            $table->string('DriverName');
-            $table->string('RouteNumberInContract');
-            $table->string('RouteName');
-            $table->string('BranchName');
-            $table->string('VehicleRegNum');
-            $table->string('VehicleModelName');
+            $table->string('DriverID')->default('');
+            $table->string('DriverName')->default('');;
+            $table->string('RouteNumberInContract')->default('');;
+            $table->string('RouteName')->default('');;
+            $table->string('BranchName')->default('');;
+            $table->string('AutoColumnName')->default('');;
+            $table->string('VehicleRegNum')->default('');;
+            $table->string('VehicleModelName')->default('');;
             $table->timestamps();
         });
     }
